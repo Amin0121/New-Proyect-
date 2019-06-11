@@ -1,5 +1,5 @@
 import hashlib, binascii
-
+import getpass
 
 class Cuenta():
     def __init__(self, usuario, clave):
@@ -12,7 +12,7 @@ class inicio():
 
     def agregarCuenta(self):
         nombreUsuario = input('Ingresa el nombre del usuario:')
-        nombreClave = input('Ingresa la clave de cuenta:')
+        nombreClave = getpass.getpass('Ingresa la clave de cuenta:')
 
         hash = hashlib.pbkdf2_hmac('sha256', nombreClave.encode(), b'hjhns', 10000)
 
@@ -24,10 +24,13 @@ class inicio():
             print ("Usuario:", recorer.usuario,'\nClave:', recorer.clave)
     
 
+
 inicio1 = inicio()
 
 
+
 while True:
+
     print('\n\t MENU \n'
     '1. Crear Cuenta\n' 
     '2. Ver la Cuenta\n' 
