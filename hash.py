@@ -24,6 +24,31 @@ class inicio():
             print ("Usuario:", recorer.usuario,'\nClave:', recorer.clave)
     
 
+    def entrada(self):
+        user = input('Nombre de Usuario: ')
+        allow = False
+        for comrpobar in self.cuentas:
+            if comrpobar.usuario == user:
+                allow = True
+        if allow: 
+            print('Digite su clave')
+        else: 
+            print('Intente de nuevo')
+            self.entrada()
+                
+    def confir(self):
+        confirm = getpass.getpass('Ingresa la clave de cuenta:')
+        hash = hashlib.pbkdf2_hmac('sha256', confirm.encode(), b'hjhns', 10000)
+        allow = False
+        for comrpobar in self.cuentas:
+            if comrpobar.clave == binascii.hexlify(hash):
+                allow = True    
+        if allow:
+            print('Bienvenido a mi pagina')
+        else:
+            print('Intente de nuevo')
+            self.confir()
+                       
 
 inicio1 = inicio()
 
@@ -34,7 +59,8 @@ while True:
     print('\n\t MENU \n'
     '1. Crear Cuenta\n' 
     '2. Ver la Cuenta\n' 
-    '3. Salir')
+    '3. login\n' 
+    '4.Salir')
 
     eleccion = input('Seleccionar una opcion:')
 
@@ -45,8 +71,14 @@ while True:
     elif(eleccion == '2'):
         print('\n\t Datos de la cuenta \n')
         inicio1.verCuenta()
-            
+    
     elif(eleccion == '3'):
+        print('\n\t longin \n')
+        inicio1.entrada()
+        inicio1.confir()
+        break
+
+    elif(eleccion == '4'):
         print('\n \t Gracias por su visita \n')
         break
     
