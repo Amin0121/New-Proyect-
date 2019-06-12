@@ -46,8 +46,10 @@ class inicio():
             if comrpobar.clave == binascii.hexlify(hash):
                 allow = True    
         if allow:
-            print('\tBienvenido a mi pagina\n'
-            'ESTAMOS EN REMODELACION')
+            print('\tWELCOME TO THE HELL, YOUR NEW HOUSE\n'
+                '////////////////////////////////////\n'
+                        '\tESTAMOS EN REMODELACION\n'
+                  '////////////////////////////////////\n')
         else:
             print('////////////////////////////////////\n'
                         '\tCLAVE NO ENCONTRADO\n'
