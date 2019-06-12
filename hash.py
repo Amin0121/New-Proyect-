@@ -33,7 +33,9 @@ class inicio():
         if allow: 
             print('Digite su clave')
         else: 
-            print('Intente de nuevo')
+            print('////////////////////////////////////\n'
+                        '\tUSUARIO NO ENCONTRADO\n'
+                  '////////////////////////////////////\n')
             self.entrada()
                 
     def confir(self):
@@ -44,9 +46,12 @@ class inicio():
             if comrpobar.clave == binascii.hexlify(hash):
                 allow = True    
         if allow:
-            print('Bienvenido a mi pagina')
+            print('\tBienvenido a mi pagina\n'
+            'ESTAMOS EN REMODELACION')
         else:
-            print('Intente de nuevo')
+            print('////////////////////////////////////\n'
+                        '\tCLAVE NO ENCONTRADO\n'
+                  '////////////////////////////////////\n')
             self.confir()
                        
 
@@ -60,7 +65,7 @@ while True:
     '1. Crear Cuenta\n' 
     '2. Ver la Cuenta\n' 
     '3. login\n' 
-    '4.Salir')
+    '4. Salir')
 
     eleccion = input('Seleccionar una opcion:')
 
